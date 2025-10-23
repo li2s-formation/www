@@ -1009,6 +1009,15 @@ layout: center
 class: text-center
 ---
 
+# Last Page
+
+
+
+---
+layout: center
+class: text-center
+---
+
 # Plus d'informations
 
 [Curriculum vitæ](https://www.samir-lakhdari.com) · [GitHub](https://github.com/samir-lakhdari) · [LinkedIn](https://www.linkedin.com/in/lakhdari/)
