@@ -1,15 +1,8 @@
 {
   "scripts": {
-    "dev": "slidev",
     "build": "slidev build"
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0"
-  },
-  "devDependencies": {
     "slidev": "^0.47.0"
-  },
-  "dependencies": {
-    "vite": "^7.2.2"
   }
 }
