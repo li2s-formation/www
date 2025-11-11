@@ -28,7 +28,7 @@ jobs:
         run: npx slidev build
 
       - name: Add custom domain (CNAME)
-        run: echo "www.lakhdari.fr" > dist/CNAME
+        run: echo "www.lakhdari.fr" > CNAME
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
