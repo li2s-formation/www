@@ -25,7 +25,7 @@ jobs:
         run: npm ci || npm install
 
       - name: Build Slidev site
-        run: npx slidev build
+        run: slidev build
 
       - name: Add CNAME for custom domain
         run: echo "www.lakhdari.fr" > dist/CNAME
