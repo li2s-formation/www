@@ -22,10 +22,10 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci || npm install
 
       - name: Build Slidev site
-        run: npm run build
+        run: npx slidev build
 
       - name: Add CNAME for custom domain
         run: echo "www.lakhdari.fr" > dist/CNAME
