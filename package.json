@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "dev": "slidev",
     "build": "slidev build"
   },
   "devDependencies": {
