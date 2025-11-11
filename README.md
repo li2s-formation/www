@@ -1,4 +1,4 @@
 # www
 git add .
-commit -m new
+git commit -m new
 git push

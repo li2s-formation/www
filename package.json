@@ -1,16 +1,10 @@
 {
-  "name": "li2s-new",
-  "type": "module",
-  "private": true,
   "scripts": {
+    "dev": "slidev",
     "build": "slidev build",
-    "dev": "slidev --open",
-    "export": "slidev export"
+    "deploy": "npm run build && npx gh-pages -d dist"
   },
-  "dependencies": {
-    "@slidev/cli": "^52.5.0",
-    "@slidev/theme-default": "latest",
-    "@slidev/theme-seriph": "latest",
-    "vue": "^3.5.22"
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
