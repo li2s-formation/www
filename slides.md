@@ -25,7 +25,7 @@ presenter: true
 
 # LI2S informatique
 
-Nos Formations IT/DevOps
+Formations IT/DevOps
 
 <div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
   Appuyer sur espace <carbon:arrow-right />
