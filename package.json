@@ -1,4 +1,6 @@
 {
+  "name": "li2s-slides",
+  "private": true,
   "scripts": {
     "dev": "slidev",
     "build": "slidev build"
@@ -7,3 +9,4 @@
     "@slidev/cli": "^0.47.0"
   }
 }
+

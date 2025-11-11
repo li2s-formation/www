@@ -3,20 +3,20 @@ name: Deploy Slidev to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main  # Déploie automatiquement à chaque push sur la branche principale
 
 permissions:
-  contents: write
+  contents: write  # Nécessaire pour pousser sur gh-pages
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -27,7 +27,7 @@ jobs:
       - name: Build Slidev site
         run: npx slidev build
 
-      - name: Add CNAME for custom domain
+      - name: Add custom domain (CNAME)
         run: echo "www.lakhdari.fr" > dist/CNAME
 
       - name: Deploy to GitHub Pages
