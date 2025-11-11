@@ -1,54 +1,38 @@
-name: Deploy pages
+name: Deploy Slidev to GitHub Pages
 
 on:
-  workflow_dispatch:
   push:
-    branches: [main]
+    branches:
+      - main  # déploie à chaque push sur la branche principale
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
+  contents: write  # nécessaire pour pousser sur gh-pages
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
-
-      - name: Setup @antfu/ni
-        run: npm i -g @antfu/ni
+          node-version: 20
 
       - name: Install dependencies
-        run: nci
+        run: npm ci
 
-      - name: Build
-        run: nr build --base /${{github.event.repository.name}}/
+      - name: Build Slidev site
+        run: npm run build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+      - name: Add CNAME for custom domain
+        run: echo "www.lakhdari.fr" > dist/CNAME
 
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+
